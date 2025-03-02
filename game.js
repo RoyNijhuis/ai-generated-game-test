@@ -291,7 +291,7 @@ class Game {
                     life: Math.random() * 0.5 + 0.5
                 });
             }
-        } else {
+            } else {
             // Start falling animation
             this.fallingAnimation.active = true;
             this.fallingAnimation.timer = 0;
@@ -650,8 +650,8 @@ class Game {
                 // Draw black hole effect for special platforms
                 const centerX = platform.x + this.platformWidth / 2;
                 const centerY = platform.y + this.platformHeight / 2;
-                
-                // Draw outer glow
+
+        // Draw outer glow
                 const glowGradient = this.ctx.createRadialGradient(
                     centerX, centerY, 0,
                     centerX, centerY, this.platformWidth / 1.5
@@ -660,33 +660,33 @@ class Game {
                 glowGradient.addColorStop(0.6, 'rgba(138, 43, 226, 0.4)');
                 glowGradient.addColorStop(1, 'rgba(147, 112, 219, 0)');
                 
-                this.ctx.fillStyle = glowGradient;
-                this.ctx.beginPath();
+        this.ctx.fillStyle = glowGradient;
+        this.ctx.beginPath();
                 this.ctx.arc(centerX, centerY, this.platformWidth / 1.5, 0, Math.PI * 2);
-                this.ctx.fill();
-                
+        this.ctx.fill();
+
                 // Draw spiral effect
                 const time = Date.now() / 1000;
-                this.ctx.save();
+        this.ctx.save();
                 this.ctx.translate(centerX, centerY);
                 this.ctx.rotate(time * 2);
                 
                 for (let i = 0; i < 4; i++) {
                     const angle = (i / 4) * Math.PI * 2;
-                    this.ctx.beginPath();
+            this.ctx.beginPath();
                     this.ctx.moveTo(0, 0);
                     this.ctx.arc(0, 0, this.platformWidth / 2, angle, angle + 0.3);
                     this.ctx.lineTo(0, 0);
                     this.ctx.fillStyle = 'rgba(138, 43, 226, 0.7)';
                     this.ctx.fill();
-                }
-                this.ctx.restore();
-                
+        }
+        this.ctx.restore();
+
                 // Draw core
-                this.ctx.beginPath();
+        this.ctx.beginPath();
                 this.ctx.arc(centerX, centerY, this.platformWidth / 4, 0, Math.PI * 2);
                 this.ctx.fillStyle = 'black';
-                this.ctx.fill();
+        this.ctx.fill();
             } else {
                 this.ctx.fillStyle = '#4CAF50';
                 this.ctx.fillRect(platform.x, platform.y, this.platformWidth, this.platformHeight);
