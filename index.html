@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkey Swing</title>
+    <title>Doodle Jump Clone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-container">
+        <div class="score">Score: <span id="score">0</span></div>
         <canvas id="gameCanvas"></canvas>
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Score: <span id="finalScore">0</span></p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
     </div>
     <script src="game.js"></script>
 </body>
